@@ -12,7 +12,7 @@ import {
 } from '../slice/phonebook';
 
 const App = () => {
-  const { contacts, filter, status } = useSelector(state => state.phonebook);
+  const { contacts, filter} = useSelector(state => state.phonebook);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
