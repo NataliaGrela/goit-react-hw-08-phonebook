@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import phonebook from 'slice/phonebook'; 
+import user from 'slices/userSlice';
 
 const reducer = combineReducers({
-phonebook
-})
+  user,
+});
 
 export const store = configureStore({
   reducer,
