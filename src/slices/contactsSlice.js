@@ -1,25 +1,29 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useApiUrls } from 'api/useApiUrls';
 
-const API_URL = 'https://64a2e4e3b45881cc0ae5da5f.mockapi.io/contacts';
+// const API_URL = 'https://64a2e4e3b45881cc0ae5da5f.mockapi.io/contacts';
 
 export const fetchContacts = createAsyncThunk('contacts/fetch', async () => {
-  const response = await axios.get(API_URL);
+  const { contacts } = useApiUrls();
+  const response = await axios.get(contacts);
   return response.data;
 });
 
 export const postContact = createAsyncThunk('contacts/post', async contact => {
-  const response = await axios.post(API_URL, contact);
+  const { contacts } = useApiUrls();
+  const response = await axios.post(contacts, contact);
   return response.data;
 });
 
 export const removeContact = createAsyncThunk('contacts/remove', async id => {
-  const response = await axios.delete(API_URL + `/${id}`);
+  const { contacts } = useApiUrls();
+  const response = await axios.delete(contacts + `/${id}`);
   return response.data;
 });
 
 const slice = createSlice({
-  name: 'phonebook',
+  name: 'contacts',
   initialState: {
     contacts: null,
     filter: '',
@@ -28,6 +32,9 @@ const slice = createSlice({
     updateFilter: (state, action) => {
       const { query } = action.payload;
       state.filter = query;
+    },
+    clearContacts: (state, action) => {
+      state.contacts = null;
     },
   },
 
@@ -49,10 +56,5 @@ const slice = createSlice({
   },
 });
 
-export const {
-  addContact,
-  loadContactsLocalStorage,
-  deleteContact,
-  updateFilter,
-} = slice.actions;
+export const { updateFilter, clearContacts } = slice.actions;
 export default slice.reducer;

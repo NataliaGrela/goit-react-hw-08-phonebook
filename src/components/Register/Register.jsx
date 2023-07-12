@@ -1,5 +1,5 @@
-import { useDebugValue, useEffect, useState } from 'react';
-import { useApiUrls } from 'api/useApiUrls';
+import { useEffect, useState } from 'react';
+// import { useApiUrls } from 'api/useApiUrls';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from 'slices/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -10,14 +10,13 @@ export const Register = () => {
   const navigate = useNavigate();
   const { token } = useSelector(state => state.user);
   const dispatch = useDispatch();
-  const { signup } = useApiUrls();
+  // const { signup } = useApiUrls();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const handleSubmit = e => {
     e.preventDefault();
     const user = { name, email, password };
-    console.log(user);
     dispatch(createUser(user));
   };
   console.log(token);

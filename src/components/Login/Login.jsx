@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useRouting } from 'api/useRouting';
-import { createUser } from 'slices/userSlice';
 import { login } from 'slices/userSlice';
 
 export const Login = () => {
@@ -15,10 +14,10 @@ export const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const user = { email, password };
-    console.log(user);
+
     dispatch(login(user));
   };
-  console.log(token);
+
   useEffect(() => {
     if (token) {
       navigate(`/${contacts}/`);

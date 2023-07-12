@@ -13,7 +13,7 @@ const ContactList = ({ contacts, filter, onDelete }) => {
         {filteredContacts.map(contact => (
           <ContactItem
             name={contact.name}
-            number={contact.phone}
+            number={contact.number}
             id={contact.id}
             key={contact.id}
             onDelete={id => onDelete(id)}
