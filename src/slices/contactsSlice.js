@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { useApiUrls } from 'api/useApiUrls';
 
-// const API_URL = 'https://64a2e4e3b45881cc0ae5da5f.mockapi.io/contacts';
-
 export const fetchContacts = createAsyncThunk('contacts/fetch', async () => {
   const { contacts } = useApiUrls();
   const response = await axios.get(contacts);

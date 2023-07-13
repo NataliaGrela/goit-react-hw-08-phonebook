@@ -15,19 +15,7 @@ code {
 }
 
 body {
-  background: lightGrey; 
+  background: lightGrey;
 }
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 20px;
-    background: lightGrey;
-  }
-
-  
-
 
 

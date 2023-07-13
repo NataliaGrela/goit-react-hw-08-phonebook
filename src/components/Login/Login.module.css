@@ -1,25 +1,24 @@
-.contactFormContainer {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
 }
 
-.form {
+.loginForm {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
   background-color: #f2f2f2;
   border-radius: 5px;
 }
 
-.label {
-  margin-top: 10px;
-
+.loginLabel {
+  margin-bottom: 10px;
 }
 
-.input {
+.loginInput {
   width: 200px;
   height: 20px;
   padding: 5px;
@@ -28,12 +27,10 @@
   border: 1px solid #ccc;
 }
 
-.button {
+.loginBtn {
   width: 100px;
   padding: 8px;
-  margin-top: 10px;
   font-size: small;
-  align-self: center;
   background-color: #165ec4;
   color: white;
   border: none;
@@ -41,7 +38,8 @@
   cursor: pointer;
 }
 
-.button:hover,
-.button:focus {
+.loginBtn:hover,
+.loginBtn:focus {
   background-color: rgb(14, 180, 213);
 }
+

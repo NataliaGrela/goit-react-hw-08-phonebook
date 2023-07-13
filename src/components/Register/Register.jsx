@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-// import { useApiUrls } from 'api/useApiUrls';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from 'slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { useRouting } from 'api/useRouting';
+import css from './Register.module.css';
 
 export const Register = () => {
   const { contacts } = useRouting();
   const navigate = useNavigate();
   const { token } = useSelector(state => state.user);
   const dispatch = useDispatch();
-  // const { signup } = useApiUrls();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -19,7 +18,6 @@ export const Register = () => {
     const user = { name, email, password };
     dispatch(createUser(user));
   };
-  console.log(token);
   useEffect(() => {
     if (token) {
       navigate(`/${contacts}/`);
@@ -27,21 +25,32 @@ export const Register = () => {
   }, [token]);
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className={css.registerContainer}>
+      <form className={css.registerForm} onSubmit={handleSubmit}>
+        <label className={css.registerLabel}>
           Name
-          <input onChange={e => setName(e.currentTarget.value)}></input>
+          <input
+            className={css.registerInput}
+            onChange={e => setName(e.currentTarget.value)}
+          ></input>
         </label>
-        <label>
+        <label className={css.registerLabel}>
           Email
-          <input onChange={e => setEmail(e.currentTarget.value)}></input>
+          <input
+            className={css.registerInput}
+            onChange={e => setEmail(e.currentTarget.value)}
+          ></input>
         </label>
-        <label>
+        <label className={css.registerLabel}>
           Password
-          <input onChange={e => setPassword(e.currentTarget.value)}></input>
+          <input
+            className={css.registerInput}
+            onChange={e => setPassword(e.currentTarget.value)}
+          ></input>
         </label>
-        <button type="submit">Register</button>
+        <button className={css.registerBtn} type="submit">
+          Register
+        </button>
       </form>
     </div>
   );

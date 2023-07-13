@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useRouting } from 'api/useRouting';
 import { login } from 'slices/userSlice';
+import css from './Login.module.css';
 
 export const Login = () => {
   const { contacts } = useRouting();
@@ -14,7 +15,6 @@ export const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const user = { email, password };
-
     dispatch(login(user));
   };
 
@@ -25,17 +25,25 @@ export const Login = () => {
   }, [token]);
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className={css.loginContainer}>
+      <form className={css.loginForm} onSubmit={handleSubmit}>
+        <label className={css.loginLabel}>
           Email
-          <input onChange={e => setEmail(e.currentTarget.value)}></input>
+          <input
+            className={css.loginInput}
+            onChange={e => setEmail(e.currentTarget.value)}
+          ></input>
         </label>
-        <label>
+        <label className={css.loginLabel}>
           Password
-          <input onChange={e => setPassword(e.currentTarget.value)}></input>
+          <input
+            className={css.loginInput}
+            onChange={e => setPassword(e.currentTarget.value)}
+          ></input>
         </label>
-        <button type="submit">Log in</button>
+        <button className={css.loginBtn} type="submit">
+          Log in
+        </button>
       </form>
     </div>
   );

@@ -9,8 +9,8 @@ const Filter = ({ onChangeFilter }) => {
 
   return (
     <div className={css.filter}>
-      <label>Find contacts by name</label>
-      <input onChange={handleChange}></input>
+      <label className={css.label}>Find contacts by name</label>
+      <input className={css.input} onChange={handleChange}></input>
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.homeTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 35px;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(22, 103, 129, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: pulsate 10s infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    font-size: 35px;
+  }
+  50% {
+    font-size: 50px;
+  }
+  100% {
+    font-size: 35px;
+  }
+}

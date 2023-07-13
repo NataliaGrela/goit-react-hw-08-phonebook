@@ -9,6 +9,7 @@ import {
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
+import css from './Contacts.module.css';
 
 export const Contacts = () => {
   const { contacts, filter } = useSelector(state => state.contacts);
@@ -48,7 +49,7 @@ export const Contacts = () => {
   };
 
   return (
-    <div className="container">
+    <div className={css.container}>
       <h1>Phonebook</h1>
 
       <ContactForm
