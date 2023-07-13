@@ -22,6 +22,7 @@ export const Login = () => {
     if (token) {
       navigate(`/${contacts}/`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (

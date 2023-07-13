@@ -5,14 +5,14 @@ import { useEffect } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 
 export const Layout = () => {
-  const { currentUser } = useSelector(state => state.user);
+  const { currentUser, } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!currentUser) {
       dispatch(clearContacts());
     }
-  }, [currentUser]);
+  }, [currentUser, dispatch]);
 
   return (
     <div>
