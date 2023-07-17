@@ -14,10 +14,6 @@ export const Navigation = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const isActive = page => {
-    return location.pathname.includes(page);
-  };
-  const location = useLocation();
   const handleLogOut = () => {
     dispatch(logout({}));
     navigate(baseUrl);
@@ -60,7 +56,7 @@ export const Navigation = () => {
                 </Button>
               ) : null}
             </li>
-          </ul>{' '}
+          </ul>
           {currentUser && <UserMenu></UserMenu>}
         </nav>
       </header>
