@@ -40,7 +40,7 @@ export const Contacts = () => {
         })
       );
     } else {
-      alert(`${name} is already in contacts`);
+      Notiflix.Notify.warning(`${name} is already in contacts`);
     }
   };
 
