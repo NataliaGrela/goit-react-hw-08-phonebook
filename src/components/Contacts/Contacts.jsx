@@ -10,6 +10,7 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import css from './Contacts.module.css';
+import Notiflix from 'notiflix';
 
 export const Contacts = () => {
   const { contacts, filter } = useSelector(state => state.contacts);
