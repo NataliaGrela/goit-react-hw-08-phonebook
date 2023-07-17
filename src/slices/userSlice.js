@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { useApiUrls } from 'api/useApiUrls';
+import Notiflix from 'notiflix';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -42,17 +43,29 @@ const slice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         state.currentUser = action.payload.user;
         state.token = action.payload.token;
+        setAuthHeader(action.payload.token);
+        Notiflix.Notify.success('Signup success');
+      })
+      .addCase(createUser.rejected, (state, action) => {
+        Notiflix.Notify.failure('Sorry, there was an error. Please try again');
       })
       .addCase(login.fulfilled, (state, action) => {
         state.currentUser = action.payload.user;
         state.token = action.payload.token;
         setAuthHeader(action.payload.token);
+        Notiflix.Notify.success('Login success');
+      })
+      .addCase(login.rejected, (state, action) => {
+        Notiflix.Notify.failure('Sorry, there was an error. Please try again');
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.currentUser = null;
-
         state.token = null;
         clearAuthHeader();
+        Notiflix.Notify.success('Logout success');
+      })
+      .addCase(logout.rejected, (state, action) => {
+        Notiflix.Notify.failure('Logout error');
       });
   },
 });

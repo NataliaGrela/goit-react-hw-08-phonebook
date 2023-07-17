@@ -8,7 +8,7 @@ import css from './Navigation.module.css';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 
 export const Navigation = () => {
-  const { login, register, baseUrl } = useRouting();
+  const { login, register, baseUrl, contacts: contactsUrl } = useRouting();
   const { currentUser } = useSelector(state => state.user);
   const { contacts } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
@@ -50,13 +50,15 @@ export const Navigation = () => {
                   Log out
                 </Button>
               ) : (
-                <Button
-                  className={isActive('/') ? 'nav-el active' : 'nav-el'}
-                  onClick={() => handleClick(login)}
-                >
-                  Log in
-                </Button>
+                <Button onClick={() => handleClick(login)}>Log in</Button>
               )}
+            </li>
+            <li>
+              {currentUser ? (
+                <Button onClick={() => handleClick(contactsUrl)}>
+                  Contacts
+                </Button>
+              ) : null}
             </li>
           </ul>{' '}
           {currentUser && <UserMenu></UserMenu>}
