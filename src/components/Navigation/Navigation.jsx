@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useRouting } from 'api/useRouting';
 import { logout } from 'slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
